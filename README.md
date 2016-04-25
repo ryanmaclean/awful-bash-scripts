@@ -1,0 +1,3 @@
+# bash_scripts
+Awful Bash Scripts I Have Made...
+  
