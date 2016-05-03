@@ -10,3 +10,4 @@ sudo rm -rf /etc/default/docker
 sudo apt-get install -y docker-engine
 sudo service docker start
 sudo usermod -aG docker ubuntu
+docker -v
