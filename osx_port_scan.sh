@@ -1,7 +1,7 @@
 #!/bin/bash
-
-# Turn on job control to do more than one at a time
-set -m
+# Apple OSX Netcat Port Scan Script
+###################################
+# Nothing fancy, just a loop with GNU Netcat
 
 # Check to see if Homebrew is installed, and install it if it is not
 command -v brew >/dev/null 2>&1 || { echo >&2 "You will need Homebrew to use this tool, installing now"; /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; }
@@ -23,6 +23,3 @@ RANGE=${RANGE:-10.0.1.}
 #STARTIP=${STARTIP:-1}
 
 for i in {1..254}; do netcat -vnz -w 1 $RANGE$i $PORT; done
-
-# Turn off job control once more
-set +m
