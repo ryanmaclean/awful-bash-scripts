@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Modified version of this gist: https://gist.github.com/Adron/90863e51c8c5c0ad2049890bcd8abbfb 
+
 # Get URLs for most recent versions
 terraform_url=$(curl --silent https://releases.hashicorp.com/index.json | jq '{terraform}' | egrep "linux.*64" | head -1 | awk -F[\"] '{print $4}')
 packer_url=$(curl --silent https://releases.hashicorp.com/index.json | jq '{packer}' | egrep "linux.*64" | head -1 | awk -F[\"] '{print $4}')
