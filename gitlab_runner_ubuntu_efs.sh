@@ -15,7 +15,9 @@ sudo chown gitlab-runner:gitlab-runner /nfscache/cache
 sudo chown gitlab-runner:gitlab-runner /nfscache/build-cache
 sudo chmod -R 755 /nfscache/cache
 sudo chmod -R 755 /nfscache/build-cache
+sudo mv /cache/* /nfscache/cache
 sudo rm -rf /cache
 sudo ln -s /nfscache/cache /cache
+sudo mv /build-cache/* /nfscache/build-cache
 sudo rm -rf /build-cache
 sudo ln -s /nfscache/build-cache /build-cache
