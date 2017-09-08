@@ -1,6 +1,7 @@
 #!/bin/env bash 
 
 # Check a few websites using a list to see if they are down
+# Requires that cURL is installed
 
 ## The sites are in the format:
 ## https://service-qa.example.com
