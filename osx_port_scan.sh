@@ -22,4 +22,4 @@ RANGE=${RANGE:-10.0.1.}
 #read -p "From what starting IP? The default is [1]:" STARTIP
 #STARTIP=${STARTIP:-1}
 
-for i in {1..254}; do netcat -vnz -w 1 $RANGE$i $PORT; done
+for i in {1..254}; do netcat -vnz -w 1 $RANGE$i $PORT & done
