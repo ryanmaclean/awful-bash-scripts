@@ -8,4 +8,4 @@ command -v jq >/dev/null 2>&1 || { echo >&2 "You will need jq in order to use th
 JSON_EXPORT=slack_users.json
 
 # Filter json file using '' and -r to only output email addresses and to remove quotes
-jq -r '.members[].profile.email' $JSON_EXPORT
+jq -r '.members[] | select(.deleted == false) | .profile.email'
