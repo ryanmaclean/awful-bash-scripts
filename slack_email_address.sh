@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Written with macOS in mind, but can easily be modded to support more OSs
 # Assumes that jq is install (via brew install jq on macOS)
 command -v jq >/dev/null 2>&1 || { echo >&2 "You will need jq in order to use this tool, installing it now"; brew install jq; }
 
