@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # Get the before last drive and the last partition added. 
 # Probably only useful if you don't have other USB drives attached!
