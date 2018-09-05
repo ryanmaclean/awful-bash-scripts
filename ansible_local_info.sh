@@ -1,4 +1,4 @@
-#!/usr/env bash
+#!/usr/bin/env bash
 cat << EOF > test.yml
 ---
 - hosts: all
