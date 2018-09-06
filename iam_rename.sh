@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 ## Rename IAM user(s) in AWS for a specific profile
 
