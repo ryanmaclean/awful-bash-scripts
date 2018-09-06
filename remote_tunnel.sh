@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Enter the host through which you'd liek to tunnel: " name
+read -p "Enter the host through which you'd like to tunnel: " name
 name=${name:-remote}
 
 ssh -C -D 1080 $name -o 'GatewayPorts yes' -q
