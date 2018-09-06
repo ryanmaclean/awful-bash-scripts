@@ -1,19 +1,23 @@
-#!/usr/bin/env bash
+#!/usr/env bash
 cat << EOF > test.yml
 ---
 - hosts: all
-  vars:
-    dest: ~/dist_info.txt
   tasks:
     - copy:
         content: ''
-        dest: "{{ dest }}"
-      run_once: yes
+        dest: "~/dist_info.txt"
       delegate_to: 127.0.0.1
     - lineinfile:
-        dest: "{{ dest }}"
-        line: 'Hostname: \t\t{{ inventory_hostname }}\nDistribution: \t\t{{ ansible_distribution }}\nDist Major Version: \t{{ ansible_distribution_major_version }}\nAnsible Dist Version: \t{{ ansible_distribution_version }}\nAnsible Dist Release: \t{{ ansible_distribution_release }}'
+        dest: "~/dist_info.txt"
+        line: |
+          Hostname: \t\t{{ inventory_hostname }}
+          Distribution: \t\t{{ ansible_distribution }}
+          Dist Major Version: \t{{ ansible_distribution_major_version }}
+          Ansible Dist Version: \t{{ ansible_distribution_version }}
+          Ansible Dist Release: \t{{ ansible_distribution_release }}
       delegate_to: 127.0.0.1
 EOF
-sudo ansible-playbook test.yml -c local -i "localhost,"
+ansible-playbook test.yml -c local -i "localhost," &> /dev/null
 cat dist_info.txt
+rm dist_info.txt
+rm test.yml
