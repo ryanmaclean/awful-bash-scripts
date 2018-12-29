@@ -6,7 +6,7 @@
 hash az || { echo >&2 "Error: az cli not working"; exit 1; }
 
 # Check that we have a pub key
-hash ~/.ssh/id_rsa.pub || {echo >&2 "Error: pub key not found"; exit 1; }
+stat ~/.ssh/id_rsa.pub || {echo >&2 "Error: pub key not found"; exit 1; }
  
 # Our resource group
 RGNAME=aks-test
