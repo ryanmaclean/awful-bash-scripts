@@ -8,8 +8,8 @@ RGNAME=aks-test
 # Check that az cli is working
 hash az || { echo >&2 "Error: az cli not working"; exit 1; }
 
-# Check that we have a pub key
-stat ~/.ssh/id_rsa.pub || {echo >&2 "Error: pub key not found"; exit 1; }
+# Check that we have a separate aks pub key
+stat ~/.ssh/aks.pub || {echo >&2 "Error: aks.pub key not found in .ssh folder"; exit 1; }
 
 # Grab 1st line, 8th column, magic node name column!
 NODE=$(az vm list -o tsv -g "${RGNAME}" | awk 'NR==1{print $8}') 
@@ -18,4 +18,4 @@ az vm user update \
   --resource-group "${RGNAME}" \
   --name "${NODE}" \
   --username azureuser \
-  --ssh-key-value ~/.ssh/id_rsa.pub
+  --ssh-key-value ~/.ssh/aks.pub
