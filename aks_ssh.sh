@@ -6,7 +6,7 @@
 RGNAME=aks-test
 
 # Our public key filename
-PUB_KEY=aks.pub
+PUBKEY=aks.pub
 
 # Check that az cli is working
 hash az || { 
@@ -27,4 +27,4 @@ az vm user update \
   --resource-group "${RGNAME}" \
   --name "${NODE}" \
   --username azureuser \
-  --ssh-key-value ~/.ssh/"${PUB_KEY}"
+  --ssh-key-value ~/.ssh/"${PUBKEY}"
