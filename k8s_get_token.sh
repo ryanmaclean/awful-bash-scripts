@@ -10,8 +10,7 @@ set -Eeuox pipefail
 TOKEN=$(awk 'END {print $2}' $HOME/.kube/config)
 
 # Put token in the clipboard, if on macOS, else print out
-unameOut="$(uname -s)"
-case "${unameOut}" in
+case "${uname -s}" in
     Darwin*)
       pbcopy $TOKEN
       ;;
