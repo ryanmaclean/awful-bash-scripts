@@ -1,4 +1,4 @@
-#!/usr/bin env bash
+#!/usr/bin/env bash
 
 # Check that we have a pub key, optionally make one if not!
 if [[ ! -e ~/.ssh/id_rsa.pub ]]; then
